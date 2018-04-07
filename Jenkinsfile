@@ -31,7 +31,7 @@ node() {
                 '''
 
                 sh '''
-                    git clone https://github.com/rht-labs/labs-ci-cd
+                    git clone https://github.com/posip-redhat/labs-ci-cd
                     cd labs-ci-cd
                     git remote add ci git@github.com:labs-robot/labs-ci-cd.git
                 '''
@@ -60,7 +60,7 @@ node() {
                     // set the vars
                     env.COMMIT_SHA = sh(returnStdout: true, script: getCommitShaScript)
                     env.USER_PASS = "${env.PR_GITHUB_USERNAME}:${env.PR_GITHUB_TOKEN}"
-                    env.PR_STATUS_URI = "https://api.github.com/repos/rht-labs/labs-ci-cd/statuses/${env.COMMIT_SHA}"
+                    env.PR_STATUS_URI = "https://api.github.com/repos/posip-redhat/labs-ci-cd/statuses/${env.COMMIT_SHA}"
 
 
                     def json = '''
